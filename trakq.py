@@ -85,10 +85,14 @@ if st.button("Nhấn nút này để tính toán"):
                 ks = df.iloc[kd, 0]
                 st.session_state["ex"] = ks
                 write_to_excel(ks, kd, 0, excel_file)
+                ks1 = int(str(int(df.iloc[kd -1, 1]))[-2:])
+                st.session_state["ex"] = ks1
+                write_to_excel(ks1, kd, 17, excel_file)
                 if tl != 0:
                     #st.write("Số cầu thõa mãn là :",tl)
+                    gttt = int(str(int(df.iloc[kd -1, 1]))[-2:])
                     if round((lon/tl)*100,2) > round((be/tl)*100,2):
-                        if round((lon/tl)*100,2) > 50 and df.iloc[i-1, 1] > 50:
+                        if round((lon/tl)*100,2) > 50 and gttt >= 50:
                             ks = "Thắng"
                             st.session_state["ex"] = ks
                             write_to_excel(ks, kd, bd, excel_file)
@@ -97,7 +101,7 @@ if st.button("Nhấn nút này để tính toán"):
                             st.session_state["ex"] = ks
                             write_to_excel(ks, kd, bd, excel_file)
                     else:
-                        if round((be / tl) * 100, 2) > 50 and df.iloc[i - 1, 1] < 50:
+                        if round((be / tl) * 100, 2) > 50 and gttt < 50:
                             ks = "Thắng"
                             st.session_state["ex"] = ks
                             write_to_excel(ks, kd, bd, excel_file)
@@ -105,6 +109,10 @@ if st.button("Nhấn nút này để tính toán"):
                             ks = "Thua"
                             st.session_state["ex"] = ks
                             write_to_excel(ks, kd, bd, excel_file)
+                    if round((lon / tl) * 100, 2) == round((be / tl) * 100, 2):
+                        ks = "Hòa"
+                        st.session_state["ex"] = ks
+                        write_to_excel(ks, kd, bd, excel_file)
                 else:
                     ks = "Không có"
                     st.session_state["ex"] = ks
