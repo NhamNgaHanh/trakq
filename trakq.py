@@ -24,7 +24,7 @@ def write_to_excel(ks, row, d, excel_file):
     with pd.ExcelWriter(excel_file, mode="a", engine="openpyxl", if_sheet_exists='overlay') as writer:
         gf.to_excel(writer, startrow=row1, startcol=d, index=False, header=False)
     return
-st.header("Thành tâm khấn nguyện 🐼👏👏👏" )
+st.header("Thành tâm khấn nguyện 👏👏👏" )
 if st.button("Cập nhật dữ liệu"):
     today = datetime.now()
     st.subheader(df.iloc[0, 0])
@@ -61,6 +61,8 @@ if st.button("Cập nhật dữ liệu"):
         write_to_excel(ks1, 0, 1, excel_file1)
 tab1, tab2 = st.tabs(["TÍNH TOÁN KẾT QUẢ", "TỔNG HỢP KẾT QUẢ"])
 with tab1:
+    st.subheader(df.iloc[0, 0])
+    st.subheader(df.iloc[0, 1])
     nd = int(st.number_input("Độ dài của cầu"))
     kd = 0
     bd = 1
