@@ -17,19 +17,6 @@ def write_to_excel(ks, row, d, excel_file):
     with pd.ExcelWriter(excel_file, mode="a", engine="openpyxl", if_sheet_exists='overlay') as writer:
         gf.to_excel(writer, startrow=row1, startcol=d, index=False, header=False)
     return
-# Danh sách để lưu số hàng thỏa mãn điều kiện
-#bd = st.number_input("Biên độ của cầu")
-nd = int(st.number_input("Số ngày soi cầu"))
-#nd = 3
-jd = int(st.number_input("Số ngày bạn muốn tính kết quả:"))
-bd = 1
-#if bd == 0 :
-    #bd = 5
-    #st.write("Bên độ soi cầu là: ",bd)
-num_r = []
-numx = []
-numy = []
-num_d = []
 if st.button("Cập nhật dữ liệu"):
     today = datetime.now()
     st.subheader(df.iloc[0, 0])
@@ -66,6 +53,16 @@ if st.button("Cập nhật dữ liệu"):
         write_to_excel(ks1, 0, 1, excel_file1)
 tab1, tab2 = st.tabs(["TÍNH TOÁN KẾT QUẢ", "TỔNG HỢP KẾT QUẢ"])
 with tab1:
+    nd = int(st.number_input("Số ngày soi cầu"))
+    kd = int(st.number_input("Ngày trong tháng:"))
+    bd = 1
+    #if bd == 0 :
+        #bd = 5
+        #st.write("Bên độ soi cầu là: ",bd)
+    num_r = []
+    numx = []
+    numy = []
+    num_d = []
     if nd > 2:
         for u in range(0, nd):
             x_u = str(int(df.iloc[u+kd, 1]))[-2:]
@@ -124,6 +121,19 @@ with tab1:
         num_r = []
     st.write(num_d)
 with tab2:
+    # Danh sách để lưu số hàng thỏa mãn điều kiện
+    #bd = st.number_input("Biên độ của cầu")
+    nd = int(st.number_input("Số ngày soi cầu"))
+    #nd = 3
+    jd = int(st.number_input("Số ngày bạn muốn tính kết quả:"))
+    bd = 1
+    #if bd == 0 :
+        #bd = 5
+        #st.write("Bên độ soi cầu là: ",bd)
+    num_r = []
+    numx = []
+    numy = []
+    num_d = []
     # Duyệt qua các hàng của DataFrame
     #st.write("Ngày dừng lại để tính toán",df.iloc[kd, 0])
     if st.button("Nhấn nút này để tính toán"):
