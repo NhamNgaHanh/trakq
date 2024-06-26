@@ -53,7 +53,7 @@ if st.button("Cập nhật dữ liệu"):
         write_to_excel(ks1, 0, 1, excel_file1)
 tab1, tab2 = st.tabs(["TÍNH TOÁN KẾT QUẢ", "TỔNG HỢP KẾT QUẢ"])
 with tab1:
-    nd = int(st.number_input("Số ngày soi cầu"))
+    nd = int(st.number_input("Độ dài của cầu"))
     kd = int(st.number_input("Ngày trong tháng:"))
     bd = 1
     #if bd == 0 :
