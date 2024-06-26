@@ -4,6 +4,13 @@ import io
 from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
 import requests
+st.set_page_config(
+    page_title="Trang Chủ",
+    page_icon="👋",
+    #initial_sidebar_state = "expanded"
+    layout= "wide",
+    initial_sidebar_state = "collapsed",
+)
 # Đọc dữ liệu từ file Excel
 df = pd.read_excel("./Book1.xlsx")
 sf = pd.read_excel("./result.xlsx")
