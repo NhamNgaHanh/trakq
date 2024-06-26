@@ -1,10 +1,14 @@
 import streamlit as st
 import pandas as pd
 import io
+from datetime import datetime, timedelta
+from bs4 import BeautifulSoup
+import requests
 # Đọc dữ liệu từ file Excel
 df = pd.read_excel("./Book1.xlsx")
 sf = pd.read_excel("./result.xlsx")
 excel_file = "result.xlsx"
+excel_file1 = "Book1.xlsx"
 # Khai báo giá trị k để so sánh
 def write_to_excel(ks, row, d, excel_file):
     row1 = row + 1
@@ -26,6 +30,40 @@ num_r = []
 numx = []
 numy = []
 num_d = []
+if st.button("Cập nhật dữ liệu"):
+    today = datetime.now()
+    st.write(today)
+    time = str(today - df.iloc[0, 0])
+    time1 = int(str(time[:1]))
+    st.write(time1)
+    if time1 > 1:
+        maeday = str(df.iloc[0, 0])
+        date_object1 = datetime.strptime(maeday, '%Y-%m-%d %H:%M:%S')
+        date_object2 = date_object1 + timedelta(days=1)
+        maeday2 = str(date_object2)
+        maeday1 = maeday2[:10]
+        date_object = datetime.strptime(maeday1, '%Y-%m-%d')
+        new_date_string = date_object.strftime('%d-%m-%Y')
+        url = 'https://3ketqua.net/xo-so-mien-bac.php?ngay='+new_date_string
+        response = requests.get(url)
+        if response.status_code == 200:
+            html_content = response.content
+        soup = BeautifulSoup(html_content, 'html.parser')
+        elements_with_id = soup.find(id='rs_0_0')
+        div_text = elements_with_id.text
+        #element_dict = json.loads(elements_with_id)
+        #st.write(f"ID: {element_dict['id']}")
+        #st.write(f"Name: {element_dict['name']}")
+        new_row = {}
+        new_row_df = pd.DataFrame([new_row])
+        kf = pd.concat([df.iloc[:0], new_row_df, df.iloc[0:]], ignore_index=True)
+        kf.to_excel(excel_file1, index=False)
+        ks = date_object
+        st.session_state["ex"] = ks
+        write_to_excel(ks, 0, 0, excel_file1)
+        ks1 = int(div_text)
+        st.session_state["ex"] = ks1
+        write_to_excel(ks1, 0, 1, excel_file1)
 # Duyệt qua các hàng của DataFrame
 #st.write("Ngày dừng lại để tính toán",df.iloc[kd, 0])
 if st.button("Nhấn nút này để tính toán"):
