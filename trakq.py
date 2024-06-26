@@ -129,7 +129,6 @@ with tab1:
         num_r = []
     st.write(num_d)
 with tab2:
-    # Danh sách để lưu số hàng thỏa mãn điều kiện
     nd1 = int(st.number_input("Số ngày soi"))
     jd = int(st.number_input("Số ngày bạn muốn tính:"))
     bd = 1
@@ -141,6 +140,13 @@ with tab2:
     # st.write("Ngày dừng lại để tính toán",df.iloc[kd, 0])
     if st.button("Nhấn nút này để tính toán"):
         my_bar = st.progress(0)
+        win = {}
+        lose = {}
+        hoa = {}
+        for bd in range(1,16):
+            win[bd] = []
+            lose[bd] = []
+            hoa[bd] = []
         for kd in range(1, jd):
             my_bar.progress(((kd) / (jd - 1)), "Đang tính toán, vui lòng đợi:")
             if nd1 > 2:
@@ -188,56 +194,33 @@ with tab2:
                             lon = lon + 1
                         else:
                             be = be + 1
-                    ks = df.iloc[kd, 0]
-                    st.session_state["ex"] = ks
-                    write_to_excel(ks, kd, 0, excel_file)
-                    ks1 = int(str(int(df.iloc[kd - 1, 1]))[-2:])
-                    st.session_state["ex"] = ks1
-                    write_to_excel(ks1, kd, 17, excel_file)
                     if tl != 0:
-                        # st.write("Số cầu thõa mãn là :",tl)
                         gttt = int(str(int(df.iloc[kd - 1, 1]))[-2:])
                         if round((lon / tl) * 100, 2) > round((be / tl) * 100, 2):
                             if round((lon / tl) * 100, 2) > 50 and gttt >= 50:
-                                ks = "Thắng"
-                                st.session_state["ex"] = ks
-                                write_to_excel(ks, kd, bd, excel_file)
-                            else:
-                                ks = "Thua"
-                                st.session_state["ex"] = ks
-                                write_to_excel(ks, kd, bd, excel_file)
+                                win[bd].append(1)
+                            if round((lon / tl) * 100, 2) > 50 and gttt < 50:
+                                lose[bd].append(1)
                         else:
                             if round((be / tl) * 100, 2) > 50 and gttt < 50:
-                                ks = "Thắng"
-                                st.session_state["ex"] = ks
-                                write_to_excel(ks, kd, bd, excel_file)
-                            else:
-                                ks = "Thua"
-                                st.session_state["ex"] = ks
-                                write_to_excel(ks, kd, bd, excel_file)
+                                win[bd].append(1)
+                            if round((be / tl) * 100, 2) > 50 and gttt >= 50:
+                                lose[bd].append(1)
                         if round((lon / tl) * 100, 2) == round((be / tl) * 100, 2):
-                            ks = "Hòa"
-                            st.session_state["ex"] = ks
-                            write_to_excel(ks, kd, bd, excel_file)
-                    else:
-                        ks = "Không có"
-                        st.session_state["ex"] = ks
-                        write_to_excel(ks, kd, bd, excel_file)
+                            hoa[bd].append(1)
                     num_r = []
             numx = []
             numy = []
-        data = pd.read_excel("./result.xlsx")
-
-        # Tạo một đối tượng io.BytesIO để ghi dữ liệu vào
-        output = io.BytesIO()
-
-        # Ghi dữ liệu DataFrame vào đối tượng io.BytesIO
-        data.to_excel(output, index=False)
-
-        # Tạo nút tải với dữ liệu đã ghi vào đối tượng io.BytesIO
-        btn = st.download_button(
-            label="Download Excel File",
-            data=output.getvalue(),  # Lấy dữ liệu từ đối tượng io.BytesIO
-            file_name="ketqua.xlsx",
-            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"  # MIME type của file Excel
+        for bd in range(1,16):
+            exec(f'thang{bd} = {len(win[bd])}')
+            exec(f'thua{bd} = {len(lose[bd])}')
+            exec(f'bang{bd} = {len(hoa[bd])}')
+        df = pd.DataFrame(
+            [
+                {"Kết quả" : "Thắng","1": thang1, "2": thang2, "3": thang3,"4": thang4,"5": thang5,"6": thang6,"7": thang7, "8": thang8,"9": thang9,"10": thang10,"11": thang11,"12": thang12,"13": thang13,"14": thang14,"15": thang15,},
+                {"Kết quả" : "Thua","1": thua1, "2": thua2, "3": thua3, "4": thua4, "5": thua5, "6": thua6, "7": thua7, "8": thua8,
+                 "9": thua9, "10": thua10, "11": thua11, "12": thua12, "13": thua13, "14": thua14, "15": thua15, },
+                {"Kết quả" : "Hòa","1": bang1, "2": bang2, "3": bang3,"4": bang4,"5": bang5,"6": bang6,"7": bang7, "8": bang8,"9": bang9,"10": bang10,"11": bang11,"12": bang12,"13": bang13,"14": bang14,"15": bang15,},
+            ]
         )
+        st.dataframe(df, use_container_width=False)
