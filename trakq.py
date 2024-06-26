@@ -54,7 +54,7 @@ if st.button("Cập nhật dữ liệu"):
 tab1, tab2 = st.tabs(["TÍNH TOÁN KẾT QUẢ", "TỔNG HỢP KẾT QUẢ"])
 with tab1:
     nd = int(st.number_input("Độ dài của cầu"))
-    kd = int(st.number_input("Ngày trong tháng:"))
+    kd = 0
     bd = 1
     #if bd == 0 :
         #bd = 5
