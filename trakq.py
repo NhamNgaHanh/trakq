@@ -24,7 +24,7 @@ def write_to_excel(ks, row, d, excel_file):
     with pd.ExcelWriter(excel_file, mode="a", engine="openpyxl", if_sheet_exists='overlay') as writer:
         gf.to_excel(writer, startrow=row1, startcol=d, index=False, header=False)
     return
-st.subheader(df.iloc[0, 0])
+st.header("Thành tâm khấn nguyện 🐼👏👏👏" )
 if st.button("Cập nhật dữ liệu"):
     today = datetime.now()
     st.subheader(df.iloc[0, 0])
