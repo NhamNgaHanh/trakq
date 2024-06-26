@@ -129,6 +129,8 @@ with tab1:
         num_r = []
     st.write(num_d)
 with tab2:
+    st.subheader(df.iloc[0, 0])
+    st.subheader(df.iloc[0, 1])
     nd1 = int(st.number_input("Số ngày soi"))
     jd = int(st.number_input("Số ngày bạn muốn tính:"))
     bd = 1
