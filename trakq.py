@@ -122,8 +122,8 @@ with tab1:
     st.write(num_d)
 with tab2:
     # Danh sách để lưu số hàng thỏa mãn điều kiện
-    nd1 = int(st.number_input("Số ngày soi cầu"))
-    jd = int(st.number_input("Số ngày bạn muốn tính kết quả:"))
+    nd1 = int(st.number_input("Số ngày soi"))
+    jd = int(st.number_input("Số ngày bạn muốn tính:"))
     bd = 1
     num_r = []
     numx = []
