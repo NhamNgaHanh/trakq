@@ -32,7 +32,7 @@ numy = []
 num_d = []
 if st.button("Cập nhật dữ liệu"):
     today = datetime.now()
-    st.write(df.iloc[0, 0])
+    st.subheader(df.iloc[0, 0])
     time = str(today - df.iloc[0, 0])
     time1 = int(str(time[:1]))
     st.write(time1)
