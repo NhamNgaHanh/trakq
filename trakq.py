@@ -284,7 +284,7 @@ with tab3:
     st.subheader(df.iloc[0, 0])
     st.subheader(df.iloc[0, 1])
     #nd = int(st.number_input("Độ dài của cầu",step = 1))
-    kd = int(st.number_input("Ngày trong tháng:", step = 1, label = xbc))
+    kd = int(st.number_input("Chọn ngày trong tháng:", step = 1))
     st.subheader(df.iloc[kd, 0])
     st.subheader(df.iloc[kd, 1])
     bd = 1
