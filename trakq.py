@@ -309,7 +309,7 @@ with tab1:
                     st.write(int(numx[u]) - int(numx[u-1]))
         st.write(str(numx))
         for bd in range(1,16):
-            st.subheader(f":red[Biên độ dao động của cầu = {bd}]")
+            #st.subheader(f":red[Biên độ dao động của cầu = {bd}]")
             if nd > 2:
                 kml = kd + 1
                 #st.write(df.iloc[kd-1, 0],df.iloc[kd-1, 1])
@@ -348,7 +348,7 @@ with tab1:
                     lon = lon + 1
                 else:
                     be = be + 1
-            if tl >= 10 and tl < 20:
+            if tl >= 10 and tl < 50:
                 st.write("Số cầu thõa mãn là :",tl)
                 st.write("Tỉ lệ ra số Lớn là :",round((lon/tl)*100,2),"%")
                 st.write("Tỉ lệ ra số Bé là :",round((be/tl)*100,2),"%")
@@ -373,7 +373,7 @@ with tab1:
                     st.write(int(numx[u]) - int(numx[u-1]))
         st.write(str(numx))
         for bd in range(1,16):
-            st.subheader(f":red[Biên độ dao động của cầu = {bd}]")
+            #st.subheader(f":red[Biên độ dao động của cầu = {bd}]")
             if nd > 2:
                 kml = kd + 1
                 #st.write(df.iloc[kd-1, 0],df.iloc[kd-1, 1])
@@ -412,7 +412,7 @@ with tab1:
                     lon = lon + 1
                 else:
                     be = be + 1
-            if tl >= 10 and tl < 20:
+            if tl >= 10 and tl < 50:
                 st.write("Số cầu thõa mãn là :",tl)
                 st.write("Tỉ lệ ra số Lớn là :",round((lon/tl)*100,2),"%")
                 st.write("Tỉ lệ ra số Bé là :",round((be/tl)*100,2),"%")
