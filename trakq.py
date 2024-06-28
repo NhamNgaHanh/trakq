@@ -352,8 +352,8 @@ with tab1:
                 st.write("Số cầu thõa mãn là :",tl)
                 st.write("Tỉ lệ ra số Lớn là :",round((lon/tl)*100,2),"%")
                 st.write("Tỉ lệ ra số Bé là :",round((be/tl)*100,2),"%")
-            else:
-                st.write("Dữ liệu không có cầu này! Vui lòng chọn ngày cầu nhỏ hơn")
+            #else:
+                #st.write("Dữ liệu không có cầu này! Vui lòng chọn ngày cầu nhỏ hơn")
             num_r = []
         st.write(num_d)
     with col2:
@@ -416,8 +416,8 @@ with tab1:
                 st.write("Số cầu thõa mãn là :",tl)
                 st.write("Tỉ lệ ra số Lớn là :",round((lon/tl)*100,2),"%")
                 st.write("Tỉ lệ ra số Bé là :",round((be/tl)*100,2),"%")
-            else:
-                st.write("Dữ liệu không có cầu này! Vui lòng chọn ngày cầu nhỏ hơn")
+            #else:
+                #st.write("Dữ liệu không có cầu này! Vui lòng chọn ngày cầu nhỏ hơn")
             num_h = []
         st.write(num_d)
         
