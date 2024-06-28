@@ -60,7 +60,7 @@ if st.button("Cập nhật dữ liệu"):
         st.session_state["ex"] = ks1
         write_to_excel(ks1, 0, 1, excel_file1)
 tab1, tab2, tab3 = st.tabs(["TÍNH TOÁN KẾT QUẢ", "TỔNG HỢP KẾT QUẢ", "KẾT QUẢ 2 CẦU"])
-with tab1:
+with tab2:
     st.subheader(df.iloc[0, 0])
     st.subheader(df.iloc[0, 1])
     nd = int(st.number_input("Độ dài của cầu",step = 1))
@@ -182,7 +182,7 @@ with tab1:
                 st.write("Dữ liệu không có cầu này! Vui lòng chọn ngày cầu nhỏ hơn")
             num_r = []
         st.write(num_d)
-with tab2:
+with tab3:
     st.subheader(df.iloc[0, 0])
     st.subheader(df.iloc[0, 1])
     nd1 = int(st.number_input("Số ngày soi",step = 1))
@@ -280,7 +280,7 @@ with tab2:
             ]
         )
         st.dataframe(df, use_container_width=False)
-with tab3:
+with tab1:
     st.subheader(df.iloc[0, 0])
     st.subheader(df.iloc[0, 1])
     #nd = int(st.number_input("Độ dài của cầu",step = 1))
