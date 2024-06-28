@@ -86,7 +86,6 @@ with tab1:
     st.write(str(numx))
     if nd == 3:
         for bd in range(13,16):
-            for bd in range(1,16):
             st.subheader(f":red[Biên độ dao động của cầu = {bd}]")
             if nd > 2:
                 kml = kd + 1
