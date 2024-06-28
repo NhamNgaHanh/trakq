@@ -349,7 +349,7 @@ with tab1:
                 else:
                     be = be + 1
             if tl >= 10 and tl < 25:
-                st.markdown(f'<span style="color:red">**Số cầu thỏa mãn là: {tl}**</span>', unsafe_allow_html=False)
+                st.subheader(f":blue[Số cầu thỏa mãn là:] {tl}")
                 st.write("Tỉ lệ ra số Lớn là :",round((lon/tl)*100,2),"%")
                 st.write("Tỉ lệ ra số Bé là :",round((be/tl)*100,2),"%")
             #else:
@@ -413,7 +413,7 @@ with tab1:
                 else:
                     be = be + 1
             if tl >= 10 and tl < 25:
-                st.markdown(f'<span style="color:red">**Số cầu thỏa mãn là: {tl}**</span>', unsafe_allow_html=False)
+                st.subheader(f":red[Số cầu thỏa mãn là:] {tl}")
                 st.write("Tỉ lệ ra số Lớn là :",round((lon/tl)*100,2),"%")
                 st.write("Tỉ lệ ra số Bé là :",round((be/tl)*100,2),"%")
             #else:
