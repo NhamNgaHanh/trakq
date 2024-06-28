@@ -308,7 +308,7 @@ with tab1:
                 if u > 0:
                     st.write(int(numx[u]) - int(numx[u-1]))
         st.write(str(numx))
-        for bd in range(1,5):
+        for bd in range(12,16):
             st.subheader(f":red[Biên độ dao động của cầu = {bd}]")
             if nd > 2:
                 kml = kd + 1
