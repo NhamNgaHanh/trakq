@@ -63,8 +63,8 @@ tab1, tab2 = st.tabs(["TÍNH TOÁN KẾT QUẢ", "TỔNG HỢP KẾT QUẢ"])
 with tab1:
     st.subheader(df.iloc[0, 0])
     st.subheader(df.iloc[0, 1])
-    nd = int(st.number_input("Độ dài của cầu"))
-    kd = 0
+    nd = int(st.number_input("Độ dài của cầu",step = 1))
+    kd = int(st.number_input("Ngày trong tháng:"), step = 1)
     bd = 1
     #if bd == 0 :
         #bd = 5
@@ -133,8 +133,8 @@ with tab1:
 with tab2:
     st.subheader(df.iloc[0, 0])
     st.subheader(df.iloc[0, 1])
-    nd1 = int(st.number_input("Số ngày soi"))
-    jd = int(st.number_input("Số ngày bạn muốn tính + 1:"))
+    nd1 = int(st.number_input("Số ngày soi",step = 1))
+    jd = int(st.number_input("Số ngày bạn muốn tính + 1:",step = 1))
     bd = 1
     num_r = []
     numx = []
