@@ -348,7 +348,7 @@ with tab1:
                     lon = lon + 1
                 else:
                     be = be + 1
-            if tl >= 10 and tl < 25:
+            if tl >= 100:
                 st.subheader(f":blue[Số cầu thỏa mãn là:] {tl}")
                 st.write("Tỉ lệ ra số Lớn là :",round((lon/tl)*100,2),"%")
                 st.write("Tỉ lệ ra số Bé là :",round((be/tl)*100,2),"%")
@@ -412,7 +412,7 @@ with tab1:
                     lon = lon + 1
                 else:
                     be = be + 1
-            if tl >= 10 and tl < 25:
+            if tl >= 100:
                 st.subheader(f":red[Số cầu thỏa mãn là:] {tl}")
                 st.write("Tỉ lệ ra số Lớn là :",round((lon/tl)*100,2),"%")
                 st.write("Tỉ lệ ra số Bé là :",round((be/tl)*100,2),"%")
