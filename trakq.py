@@ -352,6 +352,7 @@ with tab1:
                 st.subheader(f":blue[Số cầu thỏa mãn là:] {tl}")
                 st.write("Tỉ lệ ra số Lớn là :",round((lon/tl)*100,2),"%")
                 st.write("Tỉ lệ ra số Bé là :",round((be/tl)*100,2),"%")
+                st.write("Hiệu số :",round((lon/tl)*100,2)-round((be/tl)*100,2),"%")
             #else:
                 #st.write("Dữ liệu không có cầu này! Vui lòng chọn ngày cầu nhỏ hơn")
             num_r = []
@@ -416,6 +417,7 @@ with tab1:
                 st.subheader(f":red[Số cầu thỏa mãn là:] {tl}")
                 st.write("Tỉ lệ ra số Lớn là :",round((lon/tl)*100,2),"%")
                 st.write("Tỉ lệ ra số Bé là :",round((be/tl)*100,2),"%")
+                st.write("Hiệu số :",round((lon/tl)*100,2)-round((be/tl)*100,2),"%")
             #else:
                 #st.write("Dữ liệu không có cầu này! Vui lòng chọn ngày cầu nhỏ hơn")
             num_h = []
