@@ -308,7 +308,7 @@ with tab3:
     with col1:
         st.header(f":red[Cầu 3]")
         nd = 3
-        for bd in range(1,16):
+        for bd in range(1,5):
             st.subheader(f":red[Biên độ dao động của cầu = {bd}]")
             if nd > 2:
                 kml = kd + 1
@@ -359,7 +359,7 @@ with tab3:
     with col2:
         st.header(f":red[Cầu 4]")
         nd = 4
-        for bd in range(1,16):
+        for bd in range(12,16):
             st.subheader(f":red[Biên độ dao động của cầu = {bd}]")
             if nd > 2:
                 kml = kd + 1
