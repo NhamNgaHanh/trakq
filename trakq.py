@@ -348,7 +348,7 @@ with tab1:
                     lon = lon + 1
                 else:
                     be = be + 1
-            if tl >= 10 and tl < 50:
+            if tl >= 10 and tl < 20:
                 st.write("Số cầu thõa mãn là :",tl)
                 st.write("Tỉ lệ ra số Lớn là :",round((lon/tl)*100,2),"%")
                 st.write("Tỉ lệ ra số Bé là :",round((be/tl)*100,2),"%")
@@ -412,7 +412,7 @@ with tab1:
                     lon = lon + 1
                 else:
                     be = be + 1
-            if tl >= 10 and tl < 50:
+            if tl >= 10 and tl < 20:
                 st.write("Số cầu thõa mãn là :",tl)
                 st.write("Tỉ lệ ra số Lớn là :",round((lon/tl)*100,2),"%")
                 st.write("Tỉ lệ ra số Bé là :",round((be/tl)*100,2),"%")
