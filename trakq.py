@@ -291,23 +291,23 @@ with tab3:
     #if bd == 0 :
         #bd = 5
         #st.write("Bên độ soi cầu là: ",bd)
-    num_r = []
-    numx = []
-    numy = []
-    num_d = []
-    if nd > 2:
-        for u in range(0, nd):
-            x_u = str(int(df.iloc[u+kd, 1]))[-2:]
-            y_u = df.iloc[u, 0]
-            numx.append(x_u)
-            numy.append(y_u)
-            if u > 0:
-                st.write(int(numx[u]) - int(numx[u-1]))
-    st.write(str(numx))
     col1, col2 = st.columns([0.5, 0.5], gap="small")
     with col1:
         st.header(f":red[Cầu 3]")
         nd = 3
+        num_r = []
+        numx = []
+        numy = []
+        num_d = []
+        if nd > 2:
+            for u in range(0, nd):
+                x_u = str(int(df.iloc[u+kd, 1]))[-2:]
+                y_u = df.iloc[u, 0]
+                numx.append(x_u)
+                numy.append(y_u)
+                if u > 0:
+                    st.write(int(numx[u]) - int(numx[u-1]))
+        st.write(str(numx))
         for bd in range(1,5):
             st.subheader(f":red[Biên độ dao động của cầu = {bd}]")
             if nd > 2:
@@ -359,6 +359,19 @@ with tab3:
     with col2:
         st.header(f":red[Cầu 4]")
         nd = 4
+        num_h = []
+        numx = []
+        numy = []
+        num_d = []
+        if nd > 2:
+            for u in range(0, nd):
+                x_u = str(int(df.iloc[u+kd, 1]))[-2:]
+                y_u = df.iloc[u, 0]
+                numx.append(x_u)
+                numy.append(y_u)
+                if u > 0:
+                    st.write(int(numx[u]) - int(numx[u-1]))
+        st.write(str(numx))
         for bd in range(12,16):
             st.subheader(f":red[Biên độ dao động của cầu = {bd}]")
             if nd > 2:
@@ -380,7 +393,7 @@ with tab3:
                                     for m in range(0,nd):
                                         pl = i+m
                                         lits.append(df.iloc[pl, 1])
-                                    num_r.append(str(int(df.iloc[i-1, 1]))[-2:])
+                                    num_h.append(str(int(df.iloc[i-1, 1]))[-2:])
                                     #st.write(df.iloc[i, 0])
                                     #st.write(lits,)
                                     #st.write(str(int(df.iloc[i-1, 1]))[-2:])
@@ -388,13 +401,13 @@ with tab3:
                                 break
                 #st.write("Các chỉ số hàng thỏa mãn điều kiện:")
                 #st.write(str(num_r))
-            tl = len(num_r)
+            tl = len(num_h)
             #st.write(tl)
             #st.write(nd)
             lon = 0
             be = 0
             for nu in range(0,tl):
-                kh = int(num_r[nu])
+                kh = int(num_h[nu])
                 if kh > 50:
                     lon = lon + 1
                 else:
@@ -405,6 +418,6 @@ with tab3:
                 st.write("Tỉ lệ ra số Bé là :",round((be/tl)*100,2),"%")
             else:
                 st.write("Dữ liệu không có cầu này! Vui lòng chọn ngày cầu nhỏ hơn")
-            num_r = []
+            num_h = []
         st.write(num_d)
         
