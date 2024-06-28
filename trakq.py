@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 import requests
 st.set_page_config(
     page_title="Trang Chủ",
-    page_icon="👋",
+    page_icon=":bar_chart:",
     #initial_sidebar_state = "expanded"
     layout= "wide",
     initial_sidebar_state = "collapsed",
